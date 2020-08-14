@@ -1,5 +1,7 @@
 --------------------------------------------------------------------------------
-Documentation for NHGIS crosswalks from block group parts to larger geographic units
+Documentation for NHGIS crosswalks...
+  from 1990 or 2000 block group parts...
+  to 2010 block groups, census tracts, or counties
 --------------------------------------------------------------------------------
 
 Contents
@@ -26,24 +28,22 @@ Additional documentation on NHGIS crosswalks is available at:
 Data Summary
 --------------------------------------------------------------------------------
 
-Each NHGIS crosswalk file provides interpolation weights for allocating census counts from a specified
-set of source zones to a specified set of target zones. Each record in the crosswalk represents a spatial
-intersection between a single source zone and a single target zone, which we refer to as an atom.
-The Census Bureau standard GEOID is included for all target units for convenience. GEOIDs
-for source units are not included due to block group parts not being a Census Bureau geography.
+Each NHGIS crosswalk file provides interpolation weights for allocating census counts from a specified 
+set of source zones to a specified set of target zones. Each record in the crosswalk represents a spatial 
+intersection between a single source zone and a single target zone.
 
 File naming scheme: nhgis_[source geog][source year]_[target geog][target year]{_state FIPS}.csv
 
-Geographic unit codes:
+Geographic level codes:
     blk - Block
     bgp - Block group part (intersections between block groups, places, county subdivisions, etc.)
     bg  - Block group
     tr  - Census tract
     co  - County
 
-ID codes:
-    gj  - GISJOIN; the NHGIS standard code
-    ge  - GEOID; the Census Bureau standard code
+Zone identifiers:
+    gj  - GISJOIN; the NHGIS standard identifier
+    ge  - GEOID; the Census Bureau standard identifier
 
 Composition of NHGIS block group part IDs:
     - 1990
@@ -71,6 +71,8 @@ Composition of NHGIS block group part IDs:
             - Census tract code (TRACTA): 6 digits in 2000
             - Urban/Rural code (URBRURALA): 1 character; U for urban, R for rural
             - Census block group code (BLCK_GRPA): 1 digit in 2000
+
+
 
 
 --------------------------------------------------------------------------------
@@ -178,6 +180,8 @@ Content:
 Notes
 --------------------------------------------------------------------------------
 
+* The Census Bureau standard GEOID is included for all target units for convenience. GEOIDs
+    for source units are not included due to block group parts not being a Census Bureau geography.
 * The bgp1990gj field may contain blank values. These represent cases where the only 1990
     block group parts intersecting the corresponding larger geographic units are offshore,
     lying in coastal or Great Lakes waters, which are excluded from NHGIS's block boundary
